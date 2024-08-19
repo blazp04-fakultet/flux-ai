@@ -1,26 +1,27 @@
+# lora_config.yaml
 model_name: "flux-dev"
 data_config:
-  train_batch_size: 16
-  num_workers: 4
-  img_size: 512
-  img_dir: images/
-report_to: wandb
-train_batch_size: 16
-output_dir: lora/
-max_train_steps: 10000
-learning_rate: 1e-5
-lr_scheduler: constant
-lr_warmup_steps: 10
-adam_beta1: 0.9
-adam_beta2: 0.999
-adam_weight_decay: 0.01
-adam_epsilon: 1e-8
-max_grad_norm: 1.0
-logging_dir: logs
-mixed_precision: "fp16"
-checkpointing_steps: 2500
-checkpoints_total_limit: 10
-tracker_project_name: lora_test
-resume_from_checkpoint: latest
-gradient_accumulation_steps: 4
-rank: 16
+  train_batch_size: 4 # Reduced to allow more memory headroom
+  num_workers: 4 # Number of data loading workers
+  img_size: 512 # Image size for training
+  img_dir: images/ # Directory of training images
+report_to: wandb # Reporting results to Weights & Biases
+train_batch_size: 4 # Adjusted to match
+output_dir: lora/ # Output directory for the trained model
+max_train_steps: 10000 # Total number of training steps
+learning_rate: 1e-5 # Learning rate for the optimizer
+lr_scheduler: constant # Learning rate scheduling strategy
+lr_warmup_steps: 10 # Number of warmup steps for the learning rate
+adam_beta1: 0.9 # Beta parameter 1 for the Adam optimizer
+adam_beta2: 0.999 # Beta parameter 2 for the Adam optimizer
+adam_weight_decay: 0.01 # Weight decay parameter
+adam_epsilon: 1e-8 # Epsilon for Adam optimizer
+max_grad_norm: 1.0 # Max norm for gradient clipping
+logging_dir: logs # Directory for logging
+mixed_precision: "fp16" # Using mixed precision for reduced memory usage
+checkpointing_steps: 2500 # Frequency of checkpointing
+checkpoints_total_limit: 10 # Limit for total checkpoints to keep
+tracker_project_name: lora_test # Project name for W&B tracking
+resume_from_checkpoint: latest # Resuming training from the latest checkpoint
+gradient_accumulation_steps: 8 # Increased to accumulate gradients over more steps
+rank: 16 # Rank for distributed training (should remain as is)
