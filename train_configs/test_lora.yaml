@@ -1,12 +1,12 @@
 # lora_config.yaml
 model_name: "flux-dev"
 data_config:
-  train_batch_size: 4 # Reduced to allow more memory headroom
+  train_batch_size: 64 # Reduced to allow more memory headroom
   num_workers: 4 # Number of data loading workers
   img_size: 512 # Image size for training
   img_dir: images/ # Directory of training images
 report_to: wandb # Reporting results to Weights & Biases
-train_batch_size: 4 # Adjusted to match
+train_batch_size: 64 # Adjusted to match
 output_dir: lora/ # Output directory for the trained model
 max_train_steps: 10000 # Total number of training steps
 learning_rate: 1e-5 # Learning rate for the optimizer
