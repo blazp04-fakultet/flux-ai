@@ -22,5 +22,5 @@ checkpointing_steps: 2500
 checkpoints_total_limit: 10
 tracker_project_name: lora_test
 resume_from_checkpoint: latest
-gradient_accumulation_steps: 2
+gradient_accumulation_steps: 4
 rank: 16
